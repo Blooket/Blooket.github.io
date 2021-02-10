@@ -12,13 +12,15 @@
 				width:100vw;
 				overflow:hidden;
 			}
-			.linkbutton{display:flex;align-items:center;flex-direction:row;flex:1;align-self:stretch;background-color:#0bc2cf;box-shadow:0 0 8px 3px rgba(0,0,0,.2);border-radius:6px;color:#fff;font-family:Nunito,sans-serif;outline:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;cursor:pointer;padding:15px 10px;min-width:180px;margin:7px;font-size:30px;line-height:27px;text-align:center;transition:.2s;align-self:center;align-content:center;}
+			.linkbutton{display:flex;align-items:center;flex-direction:row;flex:1;align-self:stretch;background-color:#0bc2cf;box-shadow:0 0 8px 3px rgba(0,0,0,.2);border-radius:6px;color:#fff;font-family:Nunito,sans-serif;outline:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;cursor:pointer;padding:15px 10px;min-width:180px;margin:7px;font-size:30px;line-height:27px;text-align:center;transition:.2s;align-self:center;align-content:center;justify-content:center;}
 			.linkbutton:hover{opacity:0.90;transform:scale(.97);}
 			.buttontext{padding:7.5px;padding-left:5%;}
 			.buttoncontainer{flex-flow:row wrap;justify-content:space-between;margin:20px auto 0;width:90%;display:flex;}
 			.bottombuttoncontainer{margin-bottom:25px;}
 			.buttonholder{height:auto;width:100%;background-color:#fff;display:flex;flex-direction:column}
 			i{font-size:50px;}
+			.btnhvrtxt{visibility:hidden;background-color:#000a;color:#fff;font-family:Nunito;font-size:20px;text-align:center;padding:1px 15px;border-radius:5px;bottom:105%;z-index:1;position:absolute;transition-delay:0.25s;}
+			.linkbutton:hover .btnhvrtxt{visibility:visible;}
 			.body{top:0;min-height:100%;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;background-color:#f7f7f7;margin:0;padding:0;position:absolute;left:0;width:100%;z-index:-1;}
 			.stylesholder{width:100%;height:100%;margin:0;padding:0;position:absolute;top:0;left:0}
 			.headercontainer{height:90vh;width:100%;overflow:hidden;position:relative;}
@@ -27,8 +29,10 @@
 			.topheadercontainer{position:absolute;top:3vh;left:2.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:flex;flex-direction:row;align-items:center;}
 			.logotext{font-size:7.3vh;font-family:Titan One,sans-serif;text-shadow:2px 2px 8px grey;color:#fff;}
 			.welcomecontainer{position:absolute;top:22vh;left:5vw;font-family:Nunito,sans-serif;color:#fff;display:flex;flex-direction:column;}
-			.welcometext{font-size:8.83vh;line-height:9.13vh;text-shadow:2px 2px 8px grey;font-weight:700;}
-			.welcomedesc{font-size:3.35vh;margin:3vh 0;}
+			.welcometext{font-size:8.83vh;line-height:9.13vh;text-shadow:2px 2px 8px grey;font-weight:700;user-select:none;}
+			.welcomedesc{font-size:3.35vh;margin:3vh 0;user-select:none;}
+			.pronunciationbutton{font-family:Nunito,sans-serif;color:#fff;font-size:3vh;line-height:4vh;margin-top:5vh;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none;border-left:3px solid #fff;padding:0 10px;transition:0.2s;}
+			.pronunciationbutton:hover{color:#ddd;border-color:#ddd;}
 			.menuholder{min-height:75%;height:auto;max-width:100%; width:100%;background-color:#fff;display:flex;flex-direction:column;overflow:hidden;}
 			.lowerbackground{background-color:#fff;width:120vw;height:60vh;position:absolute;top:90vh;left:-10vw;transform-origin:top left;transform:rotate(-2deg);z-index:-1;overflow:hidden;}
 			.menutext{font-size:52px;padding:3.5vh 12.5%;font-weight:700;font-size:250%;position:relative;color:#3a3a3a;text-align:center;font-family:Nunito,sans-serif;}
@@ -41,6 +45,7 @@
 				.welcometext{font-size:6vh;line-height:6.5vh;}
 				.welcomedesc{font-size:2.2vh;margin:1.5vh 0 3vh;}
 				.lowerbackground{top:100vh;overflow:hidden;}
+				.pronunciationbutton{font-size:2vh;line-height:3vh;margin-top:1.5vh}
 			}
 			@media screen and (max-width:950px) and (orientation:landscape){
 				.stylesholder{height:100vw;}
@@ -132,13 +137,9 @@
 		</style>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 		<style >@import url(https://fonts.googleapis.com/css?family=Nunito:400,700|Titan+One|Creepster|Satisfy|Black+Ops+One|Eczar:700);</style>
-		<script>
-			window.addEventListener('contextmenu',
-			function (e) {e.preventDefault();
-			}, false);
-		</script>
+		
 	</head>
-	<main>
+	<body>
 		<div class="body">
 			<div class="stylesholder">
 				<div class="headercontainer">
@@ -152,6 +153,10 @@
 					<div class="welcomecontainer">
 						<div class="welcometext">Useful<br>Organized<br>Links</div>
 						<div class="welcomedesc">This is just a handful of useful links.<br>I will probably update this in the future and add more stuff.</div>
+						<div class="pronunciationbutton" id="pronunciationbutton" onclick="pronunciation()">
+							<i class="fas fa-volume-up fa-1x" aria-hidden="true"></i>
+							&nbsp; Pronunciation
+						</div>
 					</div>
 				</div>
 				<div class="menuholder">
@@ -161,10 +166,10 @@
 						<a target="_blank" class="linkbutton" href="https://www.blooket.com" style="background-color:#ffa31e;">
 							<i class="fas fa-home"></i>
 							<div class="buttontext">Blooket Website</div>
-						</a>	
-						<a target="_blank" class="linkbutton" href="https://discord.com/invite/BKpkvmb" style="background-color:#738adb;">
-							<i class="fab fa-discord"></i>
-							<div class="buttontext">Blooket Discord</div>
+						</a>	<!--https://discord.com/invite/Xrj8rfZZZc-->
+						<a class="linkbutton" href="social.html" style="background-color:#096dbd;">
+							<i class="fas fa-mobile-alt"></i>
+							<div class="buttontext">Blooket Social Medias</div>
 						</a>
 						<br>
 					</div>
@@ -184,6 +189,10 @@
 							<i class="fas fa-coins"></i>
 							<div class="buttontext">Gold Rush Values</div>
 						</a>
+						<a class="linkbutton" href="faq.html" style="background-color:rgb(246, 169, 203);">
+							<i class="far fa-question-circle"></i>
+							<div class="buttontext">Common Questions</div>
+						</a>
 						<div>
 							<div class="noclickcontainer">
 								<div class="noclick" oncontextmenu="return false"></div>
@@ -195,10 +204,11 @@
 							<i class="fas fa-gamepad"></i>
 							<div class="buttontext">Gamemode Info</div>
 						</a>
+						<!--
 						<a class="linkbutton" href="music.html" style="background-color:#ff462b;">
 							<i class="fas fa-music"></i>
 							<div class="buttontext">Good Study Music</div>
-						</a>
+						</a> -->
 						<div>
 							<div class="noclickcontainer">
 								<div class="noclick" oncontextmenu="return false"></div>
@@ -213,5 +223,20 @@
 				</div>
 			</div>
 		</div>
-	</main>
+		<script>
+			window.addEventListener('contextmenu',
+			function (e) {e.preventDefault();
+			}, false);
+			var audio = new Audio();
+			function pronunciation() {
+				audio.pause()
+				audio = new Audio('pronunciation.mp3')
+				audio.play()
+				document.getElementById('pronunciationbutton').onclick = 0;
+				setTimeout(function e() {
+					var e = document.getElementById('pronunciationbutton').onclick = function(){pronunciation()};
+				}, 500)
+			};
+		</script>
+	</body>
 </html>
