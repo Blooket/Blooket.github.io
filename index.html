@@ -176,7 +176,7 @@
 					<div class="buttoncontainer">
 						<a class="linkbutton" href="blooks.html" style="background-color:#9a49aa;">
 							<i class="fas fa-suitcase"></i>
-							<div class="buttontext">Blook List & rarities</div>
+							<div class="buttontext">Blook List & Rarities</div>
 						</a>
 						<a class="linkbutton" href="factory-earnings.html" style="background-color:#995b3c;">
 							<i class="fas fa-industry"></i>
@@ -185,9 +185,9 @@
 						<br>
 					</div>
 					<div class="buttoncontainer">
-						<a class="linkbutton" href="gold-rush.html" style="background-color:#ffcd05;">
+						<a class="linkbutton" href="gold-values.html" style="background-color:#ffcd05;">
 							<i class="fas fa-coins"></i>
-							<div class="buttontext">Gold Rush Values</div>
+							<div class="buttontext">Gold Quest Values</div>
 						</a>
 						<a class="linkbutton" href="faq.html" style="background-color:rgb(246, 169, 203);">
 							<i class="far fa-question-circle"></i>
@@ -200,7 +200,7 @@
 						</div>
 					</div>
 					<div class="buttoncontainer bottombuttoncontainer">
-						<a class="linkbutton" href="tokens-per-game.html" style="background-color:#00cf77;">
+						<a class="linkbutton" href="gamemodes.html" style="background-color:#00cf77;">
 							<i class="fas fa-gamepad"></i>
 							<div class="buttontext">Gamemode Info</div>
 						</a>
@@ -229,13 +229,15 @@
 			}, false);
 			var audio = new Audio();
 			function pronunciation() {
-				audio.pause()
 				audio = new Audio('pronunciation.mp3')
 				audio.play()
 				document.getElementById('pronunciationbutton').onclick = 0;
 				setTimeout(function e() {
 					var e = document.getElementById('pronunciationbutton').onclick = function(){pronunciation()};
 				}, 500)
+			};
+			window.onload = function() {
+				console.log('test');
 			};
 		</script>
 	</body>
