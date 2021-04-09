@@ -92,15 +92,15 @@
 		<div class="headerspace"></div>
 		<h2 class="subtitle">​Gamemodes:</h2>
 		<div class="buttoncontainer">
-			<a class="button" href="royale.html">Battle Royale</a>
-			<a class="button selectedbtn" href="cafe.html">Café</a>
-			<a class="button" href="classic.html">Classic</a>
-			<a class="button" href="kingdom.html">Crazy Kingdom</a>
-			<a class="button" href="factory.html">Factory</a>
-			<a class="button" href="gold.html">Gold Quest</a>
-			<a class="button" href="racing.html">Racing</a>
-			<a class="button" href="defense.html">Tower Defense</a>
-			<a class="button" href="tower.html">Tower of Doom</a>
+			<a class="button" href="royale">Battle Royale</a>
+			<a class="button selectedbtn" href="cafe">Café</a>
+			<a class="button" href="classic">Classic</a>
+			<a class="button" href="kingdom">Crazy Kingdom</a>
+			<a class="button" href="factory">Factory</a>
+			<a class="button" href="gold">Gold Quest</a>
+			<a class="button" href="racing">Racing</a>
+			<a class="button" href="defense">Tower Defense</a>
+			<a class="button" href="tower">Tower of Doom</a>
 		</div>
 		<div class="container">
 			<h1 class="title">Café</h1>
