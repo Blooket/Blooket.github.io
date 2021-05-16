@@ -79,6 +79,9 @@ function changecolor(){
       return pushState.apply(history, arguments);
     };
 })(window.history);
+window.onpopstate = function(event) {
+    alert("location: " + document.location);
+}
 function loadfilechange() {
   if (window.location.pathname !=='/discover') {changenewfile();} else {if (window.location.pathname !=='/dashboard') {changenewfile();} else {if (window.location.pathname !=='/create') {changenewfile();} else {if (window.location.pathname !=='/stats') {changenewfile();} else {if (window.location.pathname !=='/market') {changenewfile();} else {if (window.location.pathname !=='/blooks') {changenewfile();} else {if (window.location.pathname !=='/settings') {changenewfile();} else {if (window.location.pathname !=='/admin') {changenewfile();} else {};};};};};};};};
   function changenewfile() {
