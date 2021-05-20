@@ -1,90 +1,1240 @@
-    if(window.location.hostname == 'www.blooket.com') {if (window.location.pathname !=='/discover') {loadscript();} else {if (window.location.pathname !=='/dashboard') {loadscript();} else {if (window.location.pathname !=='/create') {loadscript();} else {if (window.location.pathname !=='/stats') {loadscript();} else {if (window.location.pathname !=='/market') {loadscript();} else {if (window.location.pathname !=='/blooks') {loadscript();} else {if (window.location.pathname !=='/settings') {loadscript();} else {if (window.location.pathname !=='/admin') {loadscript();} else {var location = window.location.pathname.slice(0, 4);if (location !=='/set') {loadscript();} else {console.log('Hmm, try pasting this on one of the usable pages: discover, dashboard, create, stats, market, blooks, or settings')}};};};};};};};};
-    } else {console.log('Hmm, try pasting this on the Blooket website...')};
-function loadscript() {var style = document.createElement('style');style.type = 'text/css';style.innerHTML = '.page{background-color:#fff;height:100vh;width:100vw;left:0;top:0;background:#fff;position:absolute;z-index:100;overflow:hidden;}.pageheader{width:100%;height:55px;position:absolute;left:0;top:0;box-shadow:0 6px 8px rgb(0 0 0 / 20%);display:flex;z-index:1;}.tab{width:50%;display;flex;font-family:Nunito;color:#fff;font-size:45px;height:calc(100% - 3px);border-bottom:#0000 solid 3px;text-align:center;transition:0.2s;cursor:pointer;color:#3a3a3a;}.tab:hover{transform:scale(1.2);}.exit{width:35px;height:35px;norder-radius:50%;position:absolute;right:7.5px;top:7.5px;font-size:35px;cursor:pointer;color: rgb(255, 70, 43);}.pagerest{width:100vw;height:calc(100% - 55px);position:absolute;top:55px;overflow:auto;left:0;}.choose{width:100%;height:45px;text-align:center;font-size:35px;font-family:Nunito;font-color:#3a3a3a;margin-top:10px;}.selectionArea{width:calc(100% - 30px);height:calc(100% - 85px);margin:15px;position:absolute;display:flex;}.button{width:calc(15% - 20px);height:calc(95% - 20px);border:10px #fff solid;box-shadow:0 0 8px 3px rgb(0 0 0 / 20%);border-radius:15px;cursor:pointer;margin:2.5%;transition:0.2s;}.button:hover{transform:scale(0.97);}.smallicon{position:fixed;background:#3a3a3a;left:10px;top:calc(100% - 55px);border-radius:50%;height:25px;width:25px;padding:10px;cursor:pointer;transition:0.2s;box-shadow:0 0 8px 3px rgb(0 0 0 / 20%);}.smallicon:hover{transform:scale(1.15);}.info{width:100%;font-family:Nunito;font-size:20px;font-color:#3a3a3a;text-align:center;margin:50px 5px 5px 5px;font-weight:400px;}.input{width:50%;margin:5px 25%;font-size:25px;text-align:center;}.sendbutton{text-align:center;width:20%;padding:10px 15px;margin:15px calc(40% - 15px);background:rgb(11, 194, 207);border-radius:15px;color:#fff;font-family:Nunito;font-size:20px;cursor:pointer;transition:0.2s}.sendbutton:hover{box-shadow:-3px -3px 0.1px 1.5px rgb(0 152 162 / 100%);transform:translateX(3px) translateY(3px);}.confirm{width:100%;font-family:Nunito;font-size:20px;color:#3a3a3a;text-align:center;}';document.getElementsByTagName('head')[0].appendChild(style);var header = document.querySelector('.styles__header___vR__R-camelCase');loadpage();}
-function loadpage() {
-  var page = document.createElement("div");document.body.appendChild(page);page.className='page';document.body.style.overflow='hidden';
-  var pageheader = document.createElement("div");page.appendChild(pageheader);pageheader.className=('pageheader');
-  var basictab = document.createElement("div");pageheader.appendChild(basictab);basictab.className=('tab');basictab.innerHTML='Basic';basictab.onclick=function a(){var pagerest = document.querySelector('.pagerest');if (pagerest == null) {} else {pagerest.remove();};loadbasic();};
-  var complextab = document.createElement("div");pageheader.appendChild(complextab);complextab.className=('tab');complextab.innerHTML='Complex';complextab.onclick=function a(){var pagerest = document.querySelector('.pagerest');if (pagerest == null) {} else {pagerest.remove();};loadcomplex();};
-  var exit = document.createElement("i");pageheader.appendChild(exit);exit.className=('exit far fa-times-circle');exit.onmouseover = function(){exit.className='exit fas fa-times-circle'};exit.onmouseout = function(){exit.className='exit far fa-times-circle'};exit.onclick = function(){page.remove();loadicon();}
-  var pagerest = document.createElement("div");page.appendChild(pagerest);pagerest.className='pagerest';
-  var choose = document.createElement("div");pagerest.appendChild(choose);choose.className='choose';choose.innerHTML='Choose One';
-  var sarea = document.createElement("div");pagerest.appendChild(sarea);sarea.className='selectionArea';
-  var button1 = document.createElement("div");sarea.appendChild(button1);button1.className='button';button1.style.background='#9a49aa';button1.onclick = function button1(){
-      localStorage.setItem('header', '#9a49aa');localStorage.setItem('text', '#fff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  var button2 = document.createElement("div");sarea.appendChild(button2);button2.className='button';button2.style.background='#0bc2cf';button2.onclick = function button2(){
-      localStorage.setItem('header', '#0bc2cf');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  var button3 = document.createElement("div");sarea.appendChild(button3);button3.className='button';button3.style.background='#ffffff';button3.onclick = function button3(){
-      localStorage.setItem('header', '#ffffff');localStorage.setItem('text', '#3a3a3a');localStorage.setItem('logo', '#3a3a3a');changecolor();
-    };
-    var button4 = document.createElement("div");sarea.appendChild(button4);button4.className='button';button4.style.background='#f9a241';button4.onclick = function button4(){
-      localStorage.setItem('header', '#f9a241');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-    var button5 = document.createElement("div");sarea.appendChild(button5);button5.className='button';button5.style.background='#19184d';button5.onclick = function button5(){
-      localStorage.setItem('header', '#19184d');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  function loadicon() {
-    document.body.style.overflow='auto';var smallicon = document.createElement("img");document.body.appendChild(smallicon);smallicon.className='smallicon';smallicon.src='https://cdn.discordapp.com/avatars/332637382698598410/8f4b0719f2ab59c9f7a7d0f1ee457a08.png?size=1024';smallicon.onclick=function reopenpage(){loadpage();this.remove()};
-  };
-  if (localStorage.getItem('header') == null) {} else {changecolor();}
-  function changecolor(){
-  var header = document.querySelector('.styles__header___vR__R-camelCase');var blooketlogo = document.querySelector('.styles__headerTextLeft___1IX-Y-camelCase');var pageheader = document.querySelector('.pageheader');var basictab = document.querySelector('.tab');var complextab = document.querySelectorAll('.tab')[1];var headervalue = localStorage.getItem('header');var logocolor = localStorage.getItem('logo');var textcolor = localStorage.getItem('text');pageheader.style.background=headervalue;basictab.style.color=textcolor;complextab.style.color=textcolor;if(header == null, undefined) {} else {header.style.backgroundColor=headervalue;blooketlogo.style.color=logocolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[2].style.color=textcolor;document.querySelector('.styles__createIcon___3PIJb-camelCase').style.color=textcolor;document.querySelector('.styles__statsIcon___1dLXo-camelCase').style.color=textcolor;document.querySelector('.styles__storeIcon___2h0yG-camelCase').style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[4].style.color=textcolor;document.querySelector('.styles__logoutIcon___1hUNx-camelCase').style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[2].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[4].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[5].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[6].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[7].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[8].style.color=textcolor;}
-};
-};
-function loadbasic() {
-  var page = document.querySelector('.page');
+<!DOCTYPE html>
+<html lang="en" style="background-color:#f7f7f7;">
+	<head>
+		<meta charset="UTF-8">
+		<title>Blooket Blooks</title>
+		<link rel="icon" href="data:image/png;base64,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">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/3a751583ae.js" crossorigin="anonymous"></script>
+		<style type="text/css">@import url(https://fonts.googleapis.com/css?family=Nunito:400,700|Titan+One|Creepster|Satisfy|Black+Ops+One|Eczar:700);</style>
+		<style>
+			img, .largeblook{
+				user-select:none;
+			 }
+			.header{
+				background-color:#9a49aa;
+				width:100%;
+				height:55px;
+				margin:0;
+				padding:0;
+				box-shadow:0 6px 8px rgba(0,0,0,.2);
+				display:flex;
+				flex-direction:row;
+				justify-content:space-between;
+				z-index:1;
+				position:fixed;
+				top:0;
+				left:0
+			}
+			.headerspace{
+			height:55px;
+			width:100%;
+			}
+			.return{
+				width:200px;
+				height:52px;
+				transition:0.3s;
+				position:absolute;
+				left:0;
+				top:0;
+				border-bottom-color:rgba(0,0,0,0);
+				border-bottom-width:3px;
+				border-bottom-style:solid;
+				cursor:pointer;
 
-  var pagerest = document.createElement("div");page.appendChild(pagerest);pagerest.className='pagerest';
-  var choose = document.createElement("div");pagerest.appendChild(choose);choose.className='choose';choose.innerHTML='Choose One';
-  var sarea = document.createElement("div");pagerest.appendChild(sarea);sarea.className='selectionArea';
-  var button1 = document.createElement("div");sarea.appendChild(button1);button1.className='button';button1.style.background='#9a49aa';button1.onclick = function button1(){
-      localStorage.setItem('header', '#9a49aa');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  var button2 = document.createElement("div");sarea.appendChild(button2);button2.className='button';button2.style.background='#0bc2cf';button2.onclick = function button2(){
-      localStorage.setItem('header', '#0bc2cf');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  var button3 = document.createElement("div");sarea.appendChild(button3);button3.className='button';button3.style.background='#ffffff';button3.onclick = function button3(){
-      localStorage.setItem('header', '#ffffff');localStorage.setItem('text', '#3a3a3a');localStorage.setItem('logo', '#3a3a3a');changecolor();
-    };
-  var button4 = document.createElement("div");sarea.appendChild(button4);button4.className='button';button4.style.background='#f9a241';button4.onclick = function button4(){
-      localStorage.setItem('header', '#f9a241');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-  var button5 = document.createElement("div");sarea.appendChild(button5);button5.className='button';button5.style.background='#19184d';button5.onclick = function button5(){
-      localStorage.setItem('header', '#19184d');localStorage.setItem('text', '#ffffff');localStorage.setItem('logo', '#ffffff');changecolor();
-    };
-};
-function loadcomplex() {
-  var page = document.querySelector('.page');
-  var pagerest = document.createElement("div");page.appendChild(pagerest);pagerest.className='pagerest';
-  var choose = document.createElement("div");pagerest.appendChild(choose);choose.className='choose';choose.innerHTML='Type in a 6 digit hex';
-  var hcolorinfo = document.createElement("div");pagerest.appendChild(hcolorinfo);hcolorinfo.className='info';hcolorinfo.innerHTML='Header Color:';
-  var hexarea1 = document.createElement("input");pagerest.appendChild(hexarea1);hexarea1.className='input';hexarea1.placeholder='#000000';var headervalue = localStorage.getItem('header');if(headervalue == null) {} else {hexarea1.value=headervalue}hexarea1.maxLength='7';
-  var tcolorinfo = document.createElement("div");pagerest.appendChild(tcolorinfo);tcolorinfo.className='info';tcolorinfo.innerHTML='Header Text Color:';
-  var hexarea2 = document.createElement("input");pagerest.appendChild(hexarea2);hexarea2.className='input';hexarea2.placeholder='#000000';var textvalue = localStorage.getItem('text'); if(textvalue == null) {} else {hexarea2.value=textvalue}hexarea2.maxLength='7';
-  var lcolorinfo = document.createElement("div");pagerest.appendChild(lcolorinfo);lcolorinfo.className='info';lcolorinfo.innerHTML='Logo Color:';
-  var hexarea3 = document.createElement("input");pagerest.appendChild(hexarea3);hexarea3.className='input';hexarea3.placeholder='#000000';var logovalue = localStorage.getItem('logo'); if(logovalue == null) {} else {hexarea3.value=logovalue}hexarea3.maxLength='7';
-  var sendbutton = document.createElement("div");pagerest.appendChild(sendbutton);sendbutton.className='sendbutton';sendbutton.innerHTML='Send!';sendbutton.onclick = function sendvalues() {var gethvalue = hexarea1.value;var gettvalue = hexarea2.value;var getlvalue = hexarea3.value;if (gethvalue == '') {} else {localStorage.setItem('header', gethvalue)};if (gettvalue == '') {} else {localStorage.setItem('text', gettvalue)};if (getlvalue == '') {} else {localStorage.setItem('logo', getlvalue)};changecolor();sendconfirmation();
-  function sendconfirmation() {var confirm = document.createElement("div");pagerest.appendChild(confirm);confirm.clasName='confirm';confirm.innerHTML='Done!';setTimeout(removeconfirm, 2500);function removeconfirm() {confirm.remove();}}
-  }
-}
-function changecolor(){
-  var header = document.querySelector('.styles__header___vR__R-camelCase');var blooketlogo = document.querySelector('.styles__headerTextLeft___1IX-Y-camelCase');var pageheader = document.querySelector('.pageheader');var basictab = document.querySelector('.tab');var complextab = document.querySelectorAll('.tab')[1];var headervalue = localStorage.getItem('header');var logocolor = localStorage.getItem('logo');var textcolor = localStorage.getItem('text');pageheader.style.background=headervalue;basictab.style.color=textcolor;complextab.style.color=textcolor;if(header == null, undefined) {} else {header.style.backgroundColor=headervalue;blooketlogo.style.color=logocolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[2].style.color=textcolor;document.querySelector('.styles__createIcon___3PIJb-camelCase').style.color=textcolor;document.querySelector('.styles__statsIcon___1dLXo-camelCase').style.color=textcolor;document.querySelector('.styles__storeIcon___2h0yG-camelCase').style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[4].style.color=textcolor;document.querySelector('.styles__logoutIcon___1hUNx-camelCase').style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[2].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[4].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[5].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[6].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[7].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[8].style.color=textcolor;}
-};
-(function(history){
-    var pushState = history.pushState;
-    history.pushState = function(state) {
-      setTimeout(loadfilechange, 1)
-      return pushState.apply(history, arguments);
-    };
-})(window.history);
-window.onpopstate = function(event) {
-    setTimeout(loadfilechange, 1)
-}
-function loadfilechange() {
-  if (window.location.pathname !=='/discover') {changenewfile();} else {if (window.location.pathname !=='/dashboard') {changenewfile();} else {if (window.location.pathname !=='/create') {changenewfile();} else {if (window.location.pathname !=='/stats') {changenewfile();} else {if (window.location.pathname !=='/market') {changenewfile();} else {if (window.location.pathname !=='/blooks') {changenewfile();} else {if (window.location.pathname !=='/settings') {changenewfile();} else {if (window.location.pathname !=='/admin') {changenewfile();} else {var location = window.location.pathname.slice(0, 4);if (location !=='/set') {loadscript();} else {};};};};};};};};};
-  function changenewfile() {
-    var header = document.querySelector('.styles__header___vR__R-camelCase');var blooketlogo = document.querySelector('.styles__headerTextLeft___1IX-Y-camelCase');var headervalue = localStorage.getItem('header');var logocolor = localStorage.getItem('logo');var textcolor = localStorage.getItem('text');if(header == null, undefined) {} else {header.style.backgroundColor=headervalue;blooketlogo.style.color=logocolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[2].style.color=textcolor;document.querySelector('.styles__createIcon___3PIJb-camelCase').style.color=textcolor;document.querySelector('.styles__statsIcon___1dLXo-camelCase').style.color=textcolor;document.querySelector('.styles__storeIcon___2h0yG-camelCase').style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__listIcon___JvI1r-camelCase')[4].style.color=textcolor;document.querySelector('.styles__logoutIcon___1hUNx-camelCase').style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[0].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[1].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[2].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[3].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[4].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[5].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[6].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[7].style.color=textcolor;document.querySelectorAll('.styles__navText___MFu71-camelCase')[8].style.color=textcolor;};
-  };
-};
+			}
+			.return:hover{
+				border-bottom-color:#fff;
+			}
+			.return:hover .returntext{
+				opacity:1;
+			}
+			.icon{
+				color:#fff;
+				margin:10px 0px;
+				position:absolute;
+				left:15px;
+				display:inline-flex;
+			}
+			.returntext{
+				color:#fff;
+				font-family:Nunito;
+				font-size:30px;
+				position:absolute;
+				margin:0;
+				top:7px;
+				left:75px;
+				opacity:1;
+				transition:0.3s;
+			}
+			.common{
+				text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    			-webkit-text-stroke-color: #000;
+    			color:#fff;
+
+			}
+			.uncommon{
+			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+			color:#4bc22e;	
+			}
+			.rare{
+ 			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+			color:#0a14fa;	
+			}
+			.epic{
+ 			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+    		color:#be0000;
+			}
+			.legendary{
+			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+    		color:#ff910f;
+			}
+			.chroma{
+			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+			color:#00ccff;
+			}
+			.mystical{
+			text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000;
+    		-webkit-text-stroke-color: #000;
+			color:#a335ee;
+			}
+			h1{font-family:Nunito;}
+			#display{width:95%;position:relative;left:2.5%;background-color:#fff;box-shadow:0 0 8px 3px #0002;border-radius:15px;display:flex;height:37.5vh;}
+			.largeblookcontainer{width:40%;justify-content:center;text-align:center;font-size:45px;font-family:Nunito;color:#3a3a3a;font-weight:600;padding:10px 15px;margin:calc(50% - 0.5);}
+			.largeblook{margin:5px 10%;max-height:25vh;display:flex;flex:1;}
+			.statscontainer{width:60%;}
+			.statscontainer h1 {height:33%;}
+			.rarity{display:block;width:100%;margin:0;font-size:65px;}
+			.rarity::selection, .droprate::selection, .largeblookcontainer::selection{background-color:#3390ffa0;}
+			.droprate{display:block;width:100%;margin:0;color:#3a3a3a;font-size:55px;}
+			.blookcontainer{width:85%;height:47.5vh;left:7.5vw;position:relative;top:15px;background:#fff;border-radius:15px;box-shadow:0 0 8px 3px #0002;}
+			.allblooks{width:80vw;position:relative;height:45vh;left:2.5%;top:1.25vh;justify-content:center;display:flex;flex-flow:wrap;overflow:auto;}
+			.blook{width:6.75%;min-width:25px;height:auto;margin:5px 1.625%;cursor:pointer;}
+			.allblooks::-webkit-scrollbar{width:12px
+			}
+			.allblooks::-webkit-scrollbar-thumb{background:#888;border-radius:10px
+			}
+			.allblooks::-webkit-scrollbar-thumb:hover{background:#777;border-radius:10px
+			}
+			.nla{font:15px #555;}
+			.spookyghost{animation:spookyghost 4s linear 0s infinite;}
+			@keyframes spookyghost {
+				0%{transform:translateY(0);}
+				50%{transform:translateY(-7.5%);}
+				100%{transform:translateY(0);}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a class="return" href="../">
+				<i class="fas fa-reply fa-2x icon"></i>
+				<h1 class="returntext">Return</h1>
+			</a>
+		</div>
+		<div class="headerspace"></div>
+		<div id="display">
+			<div class="largeblookcontainer"><img draggable="false" class="largeblook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/chick.svg">Chick</div><div class="statscontainer"><h1 class="rarity common" title="Rarity">Common</h1><h1 class="droprate" title="Drop Rate">Default Blook</h1><h1 class="droprate" title="Blook Set">Farm Animals</h1></div>
+		</div>
+		<div class="blookcontainer">
+			<div class="allblooks">
+				<img onclick="chick()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/chick.svg">
+				<img onclick="chicken()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/chicken.svg">
+				<img onclick="cow()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/cow.svg">
+				<img onclick="goat()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/goat.svg">
+				<img onclick="horse()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/horse.svg">
+				<img onclick="pig()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829564/Blooks/pig.svg">
+				<img onclick="sheep()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829564/Blooks/sheep.svg">
+				<img onclick="duck()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/duck.svg">
+				<img onclick="dog()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/dog.svg">
+				<img onclick="cat()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/cat.svg">
+				<img onclick="rabbitf()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831935/Blooks/rabbit.svg">
+				<img onclick="goldfish()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/goldfish.svg">
+				<img onclick="hamster()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/hamster.svg">
+				<img onclick="turtle()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831935/Blooks/turtle.svg">
+				<img onclick="kitten()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/kitten.svg">
+				<img onclick="puppy()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/puppy.svg">
+				<img onclick="bear()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/bear.svg">
+				<img onclick="moose()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/moose.svg">
+				<img onclick="fox()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/fox.svg">
+				<img onclick="raccoon()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/raccoon.svg">
+				<img onclick="squirrel()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/squirrel.svg">
+				<img onclick="owl()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/owl.svg">
+				<img onclick="hedgehog()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/hedgehog.svg">
+				<img onclick="tiger()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681190/Blooks/tiger.svg">
+				<img onclick="orangutan()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/orangutan.svg">
+				<img onclick="cockatoo()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/cockatoo.svg">
+				<img onclick="parrot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681189/Blooks/parrot.svg">
+				<img onclick="anaconda()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681187/Blooks/anaconda.svg">
+				<img onclick="jaguar()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/jaguar.svg">
+				<img onclick="macaw()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/macaw.svg">
+				<img onclick="toucan()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681191/Blooks/toucan.svg">
+				<img onclick="panther()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681189/Blooks/panther.svg">
+				<img onclick="capuchin()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566681187/Blooks/capuchinMonkey.svg">
+				<img onclick="snowyowl()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/snowyOwl.svg">
+				<img onclick="polarbear()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/polarBear.svg">
+				<img onclick="arcticfox()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/arcticFox.svg">
+				<img onclick="babypenguin()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/babyPenguin.svg">
+				<img onclick="penguin()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/penguin.svg">
+				<img onclick="arctichare()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/arcticHare.svg">
+				<img onclick="seal()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/seal.svg">
+				<img onclick="walrus()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/walrus.svg">
+				<img onclick="witch()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/witch.svg">
+				<img onclick="wizard()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832453/Blooks/wizard.svg">
+				<img onclick="elf()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/elf.svg">
+				<img onclick="fairy()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/fairy.svg">
+				<img onclick="slime()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683613/Blooks/slimeMonster.svg">
+				<img onclick="jester()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/jester.svg">
+				<img onclick="dragon()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1556832453/Blooks/dragon.svg">
+				<img onclick="queen()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/queen.svg">
+				<img onclick="unicorn()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683614/Blooks/unicorn.svg">
+				<img onclick="king()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/king.svg">
+				<img onclick="twoofspades()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/twoOfSpades.svg">
+				<img onclick="eatme()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/eatMe.svg">
+				<img onclick="drinkme()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/drinkMe.svg">
+				<img onclick="alice()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/alice.svg">
+				<img onclick="queenofhearts()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/queenOfHearts.svg">
+				<img onclick="dormouse()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/dormouse.svg">
+				<img onclick="whiterabbit()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/whiteRabbit.svg">
+				<img onclick="cheshirecat()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/cheshireCat.svg">
+				<img onclick="caterpillar()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1581831553/Blooks/caterpillar.svg">
+				<img onclick="madhatter()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/madHatter.svg">
+				<img onclick="kingofhearts()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/kingOfHearts.svg">
+				<img onclick="toast()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/toast.svg">
+				<img onclick="cereal()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/cereal.svg">
+				<img onclick="yogurt()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/yogurt.svg">
+				<img onclick="breakfastcombo()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/breakfastCombo.svg">
+				<img onclick="orangejuice()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/orangeJuice.svg">
+				<img onclick="milk()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/milk.svg">
+				<img onclick="waffle()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/waffle.svg">
+				<img onclick="pancakes()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/pancakes.svg">
+				<img onclick="frenchtoast()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/frenchToast.svg">
+				<img onclick="pizza()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1599952272/Blooks/pizza.svg">
+				<img onclick="earth()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/earth.svg">
+				<img onclick="meteor()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/meteor.svg">
+				<img onclick="stars()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/stars.svg">
+				<img onclick="alien()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613004231/Blooks/alien.svg">
+				<img onclick="planet()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/planet.svg">
+				<img onclick="ufo()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613004088/Blooks/UFO.svg">
+				<img onclick="spaceship()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/spaceship.svg">
+				<img onclick="astronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/astronaut.svg">
+				<img onclick="lilbot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/lilBot.svg">
+				<img onclick="lovelybot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/lovelyBot.svg">
+				<img onclick="angrybot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/angryBot.svg">
+				<img onclick="happybot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/happyBot.svg">
+				<img onclick="watson()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677388/Blooks/watson.svg">
+				<img onclick="buddybot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/buddyBot.svg">
+				<img onclick="brainybot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/brainyBot.svg">
+				<img onclick="megabot()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1620677388/Blooks/megaBot.svg">
+				<img onclick="snowglobe()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/snowGlobe.svg">
+				<img onclick="holidaygift()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/holidayGift.svg">
+				<img onclick="hotchocolate()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/hotChocolate.svg">
+				<img onclick="holidaywreath()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/holidayWreath.svg">
+				<img onclick="gingerbreadman()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575604963/Blooks/gingerbreadMan.svg">
+				<img onclick="gingerbreadhouse()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575605860/Blooks/gingerbreadHouse.svg">
+				<img onclick="snowman()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575604963/Blooks/snowman.svg">
+				<img onclick="santaclaus()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1575606016/Blooks/santaClaus.svg">
+				<img onclick="pumpkin()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/pumpkin.svg">
+				<img onclick="swampmonster()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/swampMonster.svg">
+				<img onclick="frankenstein()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/frankenstein.svg">
+				<img onclick="vampire()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/vampire.svg">
+				<img onclick="zombie()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168912/Blooks/zombie.svg">
+				<img onclick="mummy()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/mummy.svg">
+				<img onclick="werewolf()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168912/Blooks/werewolf.svg">
+				<img onclick="ghost()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/ghost.svg">
+				<img onclick="redastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/redAstronaut.svg">
+				<img onclick="blueastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/blueAstronaut.svg">
+				<img onclick="greenastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/greenAstronaut.svg">
+				<img onclick="pinkastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/pinkAstronaut.svg">
+				<img onclick="orangeastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/orangeAstronaut.svg">
+				<img onclick="yellowastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/yellowAstronaut.svg">
+				<img onclick="blackastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/blackAstronaut.svg">
+				<img onclick="purpleastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/purpleAstronaut.svg">
+				<img onclick="brownastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/brownAstronaut.svg">
+				<img onclick="cyanastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/cyanAstronaut.svg">
+				<img onclick="limeastronaut()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1613003834/Blooks/limeAstronaut.svg">
+				<img onclick="spookypumpkin()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1603679635/Blooks/spookyPumpkin.svg">
+				<img onclick="spookymummy()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1603679635/Blooks/spookyMummy.svg">
+				<img onclick="spookyghost()" draggable="false" class="blook spookyghost" src="https://res.cloudinary.com/blooket/image/upload/v1603684063/Blooks/spookyGhost.svg">
+				<img onclick="frostwreath()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1607304954/Blooks/frostWreath.svg">
+				<img onclick="tropicalglobe()" draggable="false" class="blook" src="https://res.cloudinary.com/blooket/image/upload/v1607304954/Blooks/tropicalGlobe.svg">
+			</div>
+		</div>
+		<script>
+			var d = document.getElementById('display');
+			function setdisplay() {
+				var img = localStorage.getItem('img')
+				var name = localStorage.getItem('name')
+				var rarity = localStorage.getItem('rarity')
+				var rate = localStorage.getItem('rate')
+				var set = localStorage.getItem('set')
+				d.innerHTML = '<div class="largeblookcontainer"><div class="largeblook"><img draggable="false" src="' + img + '"></div>' + name + '</div><div class="statscontainer">' + rarity + '<h1 class="droprate" title="Drop Rate">' + rate + '</h1><h1 class="droprate" title="Blook Set">' + set + '</h1></div>';
+			}
+		function chick() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/chick.svg');
+			localStorage.setItem('name', 'Chick');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function chicken() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/chicken.svg');
+			localStorage.setItem('name', 'Chicken');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function cow() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/cow.svg');
+			localStorage.setItem('name', 'Cow');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function goat() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/goat.svg');
+			localStorage.setItem('name', 'Goat');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function horse() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/horse.svg');
+			localStorage.setItem('name', 'Horse');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function pig() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829564/Blooks/pig.svg');
+			localStorage.setItem('name', 'Pig');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function sheep() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829564/Blooks/sheep.svg');
+			localStorage.setItem('name', 'Sheep');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function duck() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556829562/Blooks/duck.svg');
+			localStorage.setItem('name', 'Duck');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Farm Animals');
+			setdisplay();
+		}
+		function dog() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/dog.svg');
+			localStorage.setItem('name', 'Dog');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function cat() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/cat.svg');
+			localStorage.setItem('name', 'Cat');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function rabbitf() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831935/Blooks/rabbit.svg');
+			localStorage.setItem('name', 'Rabbit');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function goldfish() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/goldfish.svg');
+			localStorage.setItem('name', 'Goldfish');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function hamster() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/hamster.svg');
+			localStorage.setItem('name', 'Hamster');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function turtle() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831935/Blooks/turtle.svg');
+			localStorage.setItem('name', 'Turtle');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function kitten() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/kitten.svg');
+			localStorage.setItem('name', 'Kitten');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function puppy() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556831934/Blooks/puppy.svg');
+			localStorage.setItem('name', 'Puppy');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Pets');
+			setdisplay();
+		}
+		function bear() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/bear.svg');
+			localStorage.setItem('name', 'Bear');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function moose() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/moose.svg');
+			localStorage.setItem('name', 'Moose');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function fox() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/fox.svg');
+			localStorage.setItem('name', 'Fox');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function raccoon() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/raccoon.svg');
+			localStorage.setItem('name', 'Raccoon');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function squirrel() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/squirrel.svg');
+			localStorage.setItem('name', 'Squirrel');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function owl() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/owl.svg');
+			localStorage.setItem('name', 'Owl');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function hedgehog() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832316/Blooks/hedgehog.svg');
+			localStorage.setItem('name', 'Hedgehog');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Forest Animals');
+			setdisplay();
+		}
+		function tiger() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681190/Blooks/tiger.svg');
+			localStorage.setItem('name', 'Tiger');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function orangutan() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/orangutan.svg');
+			localStorage.setItem('name', 'Orangutan');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function cockatoo() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/cockatoo.svg');
+			localStorage.setItem('name', 'Cockatoo');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function parrot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681189/Blooks/parrot.svg');
+			localStorage.setItem('name', 'Parrot');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function anaconda() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681187/Blooks/anaconda.svg');
+			localStorage.setItem('name', 'Anaconda');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function jaguar() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/jaguar.svg');
+			localStorage.setItem('name', 'Jaguar');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function macaw() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681188/Blooks/macaw.svg');
+			localStorage.setItem('name', 'Macaw');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function toucan() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681191/Blooks/toucan.svg');
+			localStorage.setItem('name', 'Toucan');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function panther() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681189/Blooks/panther.svg');
+			localStorage.setItem('name', 'Panther');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function capuchin() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566681187/Blooks/capuchinMonkey.svg');
+			localStorage.setItem('name', 'Capuchin');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Tropical Animals');
+			setdisplay();
+		}
+		function snowyowl() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/snowyOwl.svg');
+			localStorage.setItem('name', 'Snowy Owl');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function polarbear() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/polarBear.svg');
+			localStorage.setItem('name', 'Polar Bear');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function arcticfox() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/arcticFox.svg');
+			localStorage.setItem('name', 'Artic Fox');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function babypenguin() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/babyPenguin.svg');
+			localStorage.setItem('name', 'Baby Penguin');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function penguin() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/penguin.svg');
+			localStorage.setItem('name', 'Penguin');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function arctichare() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/arcticHare.svg');
+			localStorage.setItem('name', 'Arctic Hare');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function seal() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566679726/Blooks/seal.svg');
+			localStorage.setItem('name', 'Seal');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function walrus() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582775344/Blooks/walrus.svg');
+			localStorage.setItem('name', 'Walrus');
+			localStorage.setItem('rarity', '<h1 class="rarity common" title="Rarity">Common</h1>');
+			localStorage.setItem('rate', 'Default Blook');
+			localStorage.setItem('set', 'Arctic Animals');
+			setdisplay();
+		}
+		function witch() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/witch.svg');
+			localStorage.setItem('name', 'Witch');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '13.4%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function wizard() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832453/Blooks/wizard.svg');
+			localStorage.setItem('name', 'Wizard');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '13.4%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function elf() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/elf.svg');
+			localStorage.setItem('name', 'Elf');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '13.4%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function fairy() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/fairy.svg');
+			localStorage.setItem('name', 'Fairy');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '13.4%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function slime() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683613/Blooks/slimeMonster.svg');
+			localStorage.setItem('name', 'Slime Monster');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '13.4%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function jester() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/jester.svg');
+			localStorage.setItem('name', 'Jester');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function dragon() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1556832453/Blooks/dragon.svg');
+			localStorage.setItem('name', 'Dragon');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function queen() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/queen.svg');
+			localStorage.setItem('name', 'Queen');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function unicorn() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683614/Blooks/unicorn.svg');
+			localStorage.setItem('name', 'Unicorn');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '5%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function king() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1566683612/Blooks/king.svg');
+			localStorage.setItem('name', 'King');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '1%');
+			localStorage.setItem('set', 'Medieval');
+			setdisplay();
+		}
+		function twoofspades() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/twoOfSpades.svg');
+			localStorage.setItem('name', 'Two of Spades');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '15.2%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function eatme() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/eatMe.svg');
+			localStorage.setItem('name', 'Eat Me');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '15%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function drinkme() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/drinkMe.svg');
+			localStorage.setItem('name', 'Drink Me');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '15%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function alice() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/alice.svg');
+			localStorage.setItem('name', 'Alice');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '15%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function queenofhearts() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/queenOfHearts.svg');
+			localStorage.setItem('name', 'Queen of Hearts');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '15%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function dormouse() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/dormouse.svg');
+			localStorage.setItem('name', 'Dormouse');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '6.5%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function whiterabbit() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/whiteRabbit.svg');
+			localStorage.setItem('name', 'White Rabbit');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '6.5%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function cheshirecat() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080264/Blooks/cheshireCat.svg');
+			localStorage.setItem('name', 'Cheshire Cat');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '6.5%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function caterpillar() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1581831553/Blooks/caterpillar.svg');
+			localStorage.setItem('name', 'Caterpillar');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '2.5%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function madhatter() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/madHatter.svg');
+			localStorage.setItem('name', 'Mad Hatter');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '2.5%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function kingofhearts() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1582080266/Blooks/kingOfHearts.svg');
+			localStorage.setItem('name', 'King of Hearts');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '0.3%');
+			localStorage.setItem('set', 'Wonderland');
+			setdisplay();
+		}
+		function toast() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/toast.svg');
+			localStorage.setItem('name', 'Toast');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function cereal() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/cereal.svg');
+			localStorage.setItem('name', 'Cereal');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function yogurt() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/yogurt.svg');
+			localStorage.setItem('name', 'Yogurt');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function breakfastcombo() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/breakfastCombo.svg');
+			localStorage.setItem('name', 'Breakfast Combo');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function orangejuice() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/orangeJuice.svg');
+			localStorage.setItem('name', 'Orange Juice');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function milk() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/milk.svg');
+			localStorage.setItem('name', 'Milk');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '12.5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function waffle() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/waffle.svg');
+			localStorage.setItem('name', 'Waffle');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function pancakes() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483099/Blooks/pancakes.svg');
+			localStorage.setItem('name', 'Pancakes');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function frenchtoast() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1584483097/Blooks/frenchToast.svg');
+			localStorage.setItem('name', 'Waffle');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '5%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function pizza() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1599952272/Blooks/pizza.svg');
+			localStorage.setItem('name', 'Pizza');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '2%');
+			localStorage.setItem('set', 'Breakfast');
+			setdisplay();
+		}
+		function earth() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/earth.svg');
+			localStorage.setItem('name', 'Earth');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.75%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function meteor() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/meteor.svg');
+			localStorage.setItem('name', 'Meteor');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.75%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function stars() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/stars.svg');
+			localStorage.setItem('name', 'Stars');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.75%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function alien() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613004231/Blooks/alien.svg');
+			localStorage.setItem('name', 'Alien');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.75%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function planet() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/planet.svg');
+			localStorage.setItem('name', 'Planet');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '10%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function ufo() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613004088/Blooks/UFO.svg');
+			localStorage.setItem('name', 'UFO');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '10%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function spaceship() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/spaceship.svg');
+			localStorage.setItem('name', 'Spaceship');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '4.5%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function astronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/astronaut.svg');
+			localStorage.setItem('name', 'Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '0.45%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function lilbot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/lilBot.svg');
+			localStorage.setItem('name', 'Lil Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '19.5%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function lovelybot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/lovelyBot.svg');
+			localStorage.setItem('name', 'Lovely Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '19.5%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function angrybot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/angryBot.svg');
+			localStorage.setItem('name', 'Angry Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '19.5%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function happybot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/happyBot.svg');
+			localStorage.setItem('name', 'Happy Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '19.5%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function watson() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677388/Blooks/watson.svg');
+			localStorage.setItem('name', 'Watson');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function buddybot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/buddyBot.svg');
+			localStorage.setItem('name', 'Buddy Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '9%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function brainybot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677386/Blooks/brainyBot.svg');
+			localStorage.setItem('name', 'Brainy Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '3.7%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function megabot() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1620677388/Blooks/megaBot.svg');
+			localStorage.setItem('name', 'Mega Bot');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '0.3%');
+			localStorage.setItem('set', 'Bot');
+			setdisplay();
+		}
+		function snowglobe() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/snowGlobe.svg');
+			localStorage.setItem('name', 'Snow Globe');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '17.75%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function holidaygift() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/holidayGift.svg');
+			localStorage.setItem('name', 'Holiday Gift');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '17.75%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function hotchocolate() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/hotChocolate.svg');
+			localStorage.setItem('name', 'Hot Chocolate');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '17.75%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function holidaywreath() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575848338/Blooks/holidayWreath.svg');
+			localStorage.setItem('name', 'Holiday Wreath');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '17.75%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function gingerbreadman() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575604963/Blooks/gingerbreadMan.svg');
+			localStorage.setItem('name', 'Gingerbread Man');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '11%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function gingerbreadhouse() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575605860/Blooks/gingerbreadHouse.svg');
+			localStorage.setItem('name', 'Gingerbread House');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '11%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function snowman() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575604963/Blooks/snowman.svg');
+			localStorage.setItem('name', 'Snowman');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '5.9%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function santaclaus() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1575606016/Blooks/santaClaus.svg');
+			localStorage.setItem('name', 'Santa Claus');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '1.05%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function pumpkin() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/pumpkin.svg');
+			localStorage.setItem('name', 'Pumpkin');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function swampmonster() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/swampMonster.svg');
+			localStorage.setItem('name', 'Swamp Monster');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function frankenstein() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/frankenstein.svg');
+			localStorage.setItem('name', 'Frankenstein');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function vampire() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/vampire.svg');
+			localStorage.setItem('name', 'Vampire');
+			localStorage.setItem('rarity', '<h1 class="rarity uncommon" title="Rarity">Uncommon</h1>');
+			localStorage.setItem('rate', '18.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function zombie() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168912/Blooks/zombie.svg');
+			localStorage.setItem('name', 'Zombie');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '10.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function mummy() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/mummy.svg');
+			localStorage.setItem('name', 'Mummy');
+			localStorage.setItem('rarity', '<h1 class="rarity rare" title="Rarity">Rare</h1>');
+			localStorage.setItem('rate', '10.5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function werewolf() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168912/Blooks/werewolf.svg');
+			localStorage.setItem('name', 'Werewolf');
+			localStorage.setItem('rarity', '<h1 class="rarity epic" title="Rarity">Epic</h1>');
+			localStorage.setItem('rate', '5%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function ghost() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1601168910/Blooks/ghost.svg');
+			localStorage.setItem('name', 'Ghost');
+			localStorage.setItem('rarity', '<h1 class="rarity legendary" title="Rarity">Legendary</h1>');
+			localStorage.setItem('rate', '0.7%');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function redastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/redAstronaut.svg');
+			localStorage.setItem('name', 'Red Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Friday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function blueastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/blueAstronaut.svg');
+			localStorage.setItem('name', 'Blue Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Unreleased');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function greenastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003832/Blooks/greenAstronaut.svg');
+			localStorage.setItem('name', 'Green Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Sunday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function pinkastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/pinkAstronaut.svg');
+			localStorage.setItem('name', 'Pink Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Monday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function orangeastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/orangeAstronaut.svg');
+			localStorage.setItem('name', 'Orange Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Thursday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function yellowastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003833/Blooks/yellowAstronaut.svg');
+			localStorage.setItem('name', 'Yellow Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Tuesday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function blackastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003835/Blooks/blackAstronaut.svg');
+			localStorage.setItem('name', 'Black Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Wednesday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function purpleastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/purpleAstronaut.svg');
+			localStorage.setItem('name', 'Purple Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Unreleased');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function brownastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/brownAstronaut.svg');
+			localStorage.setItem('name', 'Brown Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Saturday: 0.05%');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function cyanastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003831/Blooks/cyanAstronaut.svg');
+			localStorage.setItem('name', 'Cyan Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Unreleased');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function limeastronaut() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1613003834/Blooks/limeAstronaut.svg');
+			localStorage.setItem('name', 'Lime Astronaut');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Unreleased');
+			localStorage.setItem('set', 'Space');
+			setdisplay();
+		}
+		function spookypumpkin() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1603679635/Blooks/spookyPumpkin.svg');
+			localStorage.setItem('name', 'Spooky Pumpkin');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Awarded');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function spookymummy() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1603679635/Blooks/spookyMummy.svg');
+			localStorage.setItem('name', 'Spooky Mummy');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', 'Awarded');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function spookyghost() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1603684063/Blooks/spookyGhost.svg" class="spookyghost');
+			localStorage.setItem('name', 'Spooky Ghost');
+			localStorage.setItem('rarity', '<h1 class="rarity mystical" title="Rarity">Mystical</h1>');
+			localStorage.setItem('rate', 'Awarded');
+			localStorage.setItem('set', 'Spooky');
+			setdisplay();
+		}
+		function frostwreath() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1607304954/Blooks/frostWreath.svg');
+			localStorage.setItem('name', 'Frost Wreath');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', '0.03%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		function tropicalglobe() {
+			localStorage.setItem('img', 'https://res.cloudinary.com/blooket/image/upload/v1607304954/Blooks/tropicalGlobe.svg');
+			localStorage.setItem('name', 'Tropical Globe');
+			localStorage.setItem('rarity', '<h1 class="rarity chroma" title="Rarity">Chroma</h1>');
+			localStorage.setItem('rate', '0.02%');
+			localStorage.setItem('set', 'Blizzard');
+			setdisplay();
+		}
+		</script>
+	</body>
+</html>
